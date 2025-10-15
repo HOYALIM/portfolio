@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Ho Lim: Personal site and portfolio</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../projects/index.html">Projects</a>
+        <a href="index.html">Contact</a>
+        <a href="../resume/index.html">Resume</a>
+        <a href="https://github.com/HOYALIM" target="_blank">GitHub</a>
+    </nav>
+    
+    <h1>Contact</h1>
+    <p>Get in touch with me!</p>
+    
+    <form action="mailto:your-email@example.com" method="POST" enctype="text/plain">
+        <label>
+            Email:
+            <input type="email" name="email" value="test@example.com" required>
+        </label>
+        
+        <label>
+            Subject:
+            <input type="text" name="subject" value="Fill out the subject" required>
+        </label>
+        
+        <label>
+            Message:
+            <textarea name="body" required> Fill out the message </textarea>
+        </label>
+        
+        <button type="submit">Send Message</button>
+    </form>
+</body>
+</html>
