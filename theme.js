@@ -16,4 +16,32 @@ document.addEventListener('DOMContentLoaded', function() {
         body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
     });
+    
+    // Coursework toggle functionality
+    const courseworkHeader = document.querySelector('.coursework-header');
+    const courseworkContent = document.querySelector('.coursework-content');
+    const toggleIcon = document.querySelector('.toggle-icon');
+    
+    console.log('Coursework elements found:', {
+        header: !!courseworkHeader,
+        content: !!courseworkContent,
+        icon: !!toggleIcon
+    });
+    
+    if (courseworkHeader && courseworkContent) {
+        courseworkHeader.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Coursework header clicked!');
+            courseworkContent.classList.toggle('expanded');
+            
+            // Update toggle icon rotation
+            if (toggleIcon) {
+                toggleIcon.style.transform = courseworkContent.classList.contains('expanded') 
+                    ? 'rotate(180deg)' 
+                    : 'rotate(0deg)';
+            }
+        });
+    } else {
+        console.log('Coursework elements not found on this page');
+    }
 });

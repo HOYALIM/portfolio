@@ -254,6 +254,7 @@ form textarea {
   border: 1px solid var(--form-border);
   border-radius: 4px;
   font-size: 1em;
+  font-family: inherit;
   background-color: var(--form-bg);
   color: var(--text-color);
   transition: border-color 0.3s ease, background-color 0.3s ease;
@@ -284,10 +285,82 @@ form button:hover {
   background-color: oklch(55% 50% 0);
 }
 
+/* Alternative contact section spacing */
+form + p {
+  margin-top: 3em;
+}
+
 /* Typography improvements */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
+}
+
+/* Resume header card styling */
+.resume-header {
+  background: linear-gradient(135deg, var(--bg-color) 0%, rgba(0,0,0,0.02) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2em;
+  margin-bottom: 3em;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.resume-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.resume-header h1 {
+  font-size: 2.5em;
+  font-weight: 300;
+  margin-bottom: 0.5em;
+  color: var(--text-color);
+}
+
+.resume-header .title {
+  font-size: 1.2em;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.resume-header .contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  margin-bottom: 1em;
+}
+
+.resume-header .contact-info span {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.95em;
+  color: var(--text-color);
+}
+
+.resume-header .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.resume-header .links a {
+  padding: 0.5em 1em;
+  background: var(--color-accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.resume-header .links a:hover {
+  background: oklch(55% 50% 0);
+  transform: translateY(-1px);
 }
 
 /* Resume section headers styling */
@@ -320,6 +393,217 @@ section {
 [data-theme="dark"] .experience-section,
 [data-theme="dark"] .projects-section {
   border-top-color: oklch(40% 3% 200);
+}
+
+/* Experience cards styling */
+.experience-card {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5em;
+  margin-bottom: 1.5em;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.experience-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-color: var(--color-accent);
+}
+
+.experience-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1em;
+}
+
+.experience-card header .title-info {
+  flex: 1;
+}
+
+.experience-card header h3 {
+  color: var(--color-accent);
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.experience-card header p {
+  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: 0.3em;
+}
+
+.experience-card time {
+  color: var(--color-accent);
+  font-weight: 500;
+  font-size: 0.9em;
+  white-space: nowrap;
+  margin-left: 1em;
+  flex-shrink: 0;
+}
+
+.experience-card ul {
+  margin-top: 1em;
+  padding-left: 1.2em;
+}
+
+.experience-card li {
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+}
+
+/* Skills grid styling */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5em;
+  margin-top: 1em;
+}
+
+.skill-category {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5em;
+  transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.skill-category h3 {
+  color: var(--color-accent);
+  font-size: 1.1em;
+  margin-bottom: 1em;
+  font-weight: 600;
+}
+
+.skill-category p {
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Coursework styling */
+.coursework-section {
+  margin-top: 1.5em;
+}
+
+/* Coursework toggle styling */
+.coursework-toggle {
+  margin-top: 1.5em;
+}
+
+.coursework-header {
+  color: var(--color-accent);
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8em 1em;
+  background: rgba(0,0,0,0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.coursework-header:hover {
+  background: rgba(0,0,0,0.05);
+  border-color: var(--color-accent);
+}
+
+.toggle-icon {
+  font-size: 0.9em;
+  transition: transform 0.3s ease;
+}
+
+.coursework-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.coursework-content.expanded {
+  max-height: 1000px;
+}
+
+.coursework-content.expanded .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.coursework-category {
+  margin: 1.5em 0;
+}
+
+.coursework-category h5 {
+  color: var(--text-color);
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 0.8em;
+  padding-left: 0.5em;
+  border-left: 3px solid var(--color-accent);
+}
+
+.coursework-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.8em;
+}
+
+.coursework-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.coursework-item {
+  background: rgba(0,0,0,0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.8em 1em;
+  font-size: 0.95em;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  min-height: 3em;
+  display: flex;
+  align-items: center;
+  line-height: 1.3;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.coursework-item:hover {
+  background: var(--color-accent);
+  color: white;
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Project link styling */
+.project-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 0.3em 0.8em;
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background: var(--color-accent);
+  color: white;
+  transform: translateY(-1px);
 }
 
 article {
