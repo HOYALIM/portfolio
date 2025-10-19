@@ -8,14 +8,115 @@
 </head>
 <body>
     <nav>
-        <a href="../index.html">Home</a>
-        <a href="index.html">Projects</a>
-        <a href="../contact/index.html">Contact</a>
-        <a href="../resume/index.html">Resume</a>
-        <a href="https://github.com/HOYALIM" target="_blank">GitHub</a>
+        <a href="../index.html">HOME</a>
+        <a href="index.html" class="current">PROJECTS</a>
+        <a href="../contact/index.html">CONTACT</a>
+        <a href="../resume/index.html">RESUME</a>
+        <a href="https://github.com/HOYALIM" target="_blank">GITHUB</a>
     </nav>
+    
+    <!-- Theme toggle switch - Toggle style -->
+    <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle-switch">
+            <div class="toggle-track">
+                <div class="toggle-slider"></div>
+            </div>
+        </button>
+    </div>
     
     <h1>Projects</h1>
     <p>Here you can find my data science and web development projects.</p>
+    
+    <div class="projects">
+        <article>
+            <h2>Lorem ipsum dolor sit</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </article>
+        <article>
+            <h2>Ut enim ad minim veniam</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article>
+        <article>
+            <h2>Duis aute irure dolor</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </article>
+        <article>
+            <h2>Excepteur sint occaecat</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </article>
+        <article>
+            <h2>Sed ut perspiciatis unde</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+        </article>
+        <article>
+            <h2>Totam rem aperiam eaque</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
+        </article>
+        <article>
+            <h2>Explicabo nemo enim ipsam</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+        </article>
+        <article>
+            <h2>Sed quia consequuntur magni</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+        </article>
+        <article>
+            <h2>Neque porro quisquam est</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+        </article>
+        <article>
+            <h2>Sed ut perspiciatis unde</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+        </article>
+        <article>
+            <h2>Totam rem aperiam eaque</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
+        </article>
+        <article>
+            <h2>Explicabo nemo enim ipsam</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+        </article>
+        <article>
+            <h2>Sed quia consequuntur magni</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project placeholder">
+            <p>Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+        </article>
+    </div>
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        function updateThemeIcon(theme) {
+            // Toggle switch is now handled by CSS animations
+        }
+    </script>
 </body>
 </html>

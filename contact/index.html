@@ -8,33 +8,68 @@
 </head>
 <body>
     <nav>
-        <a href="../index.html">Home</a>
-        <a href="../projects/index.html">Projects</a>
-        <a href="index.html">Contact</a>
-        <a href="../resume/index.html">Resume</a>
-        <a href="https://github.com/HOYALIM" target="_blank">GitHub</a>
+        <a href="../index.html">HOME</a>
+        <a href="../projects/index.html">PROJECTS</a>
+        <a href="index.html" class="current">CONTACT</a>
+        <a href="../resume/index.html">RESUME</a>
+        <a href="https://github.com/HOYALIM" target="_blank">GITHUB</a>
     </nav>
+    
+    <!-- Theme toggle switch - Toggle style -->
+    <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle-switch">
+            <div class="toggle-track">
+                <div class="toggle-slider"></div>
+            </div>
+        </button>
+    </div>
     
     <h1>Contact</h1>
     <p>Get in touch with me!</p>
     
-    <form action="mailto:your-email@example.com" method="POST" enctype="text/plain">
+    <form action="mailto:hol050@ucsd.edu" method="POST" enctype="text/plain">
         <label>
-            Email:
-            <input type="email" name="email" value="test@example.com" required>
+            Your Email:
+            <input type="email" name="email" placeholder="your.email@example.com" required>
         </label>
         
         <label>
             Subject:
-            <input type="text" name="subject" value="Fill out the subject" required>
+            <input type="text" name="subject" placeholder="Enter your subject here" required>
         </label>
         
         <label>
             Message:
-            <textarea name="body" required> Fill out the message </textarea>
+            <textarea name="body" placeholder="Enter your message here" required style="font-family: inherit;"></textarea>
         </label>
         
         <button type="submit">Send Message</button>
     </form>
+    
+    <p><strong>Alternative:</strong> You can also reach me directly at <a href="mailto:hol050@ucsd.edu">hol050@ucsd.edu</a></p>
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        function updateThemeIcon(theme) {
+            // Toggle switch is now handled by CSS animations
+        }
+    </script>
 </body>
 </html>

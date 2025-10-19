@@ -8,15 +8,48 @@
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="projects/index.html">Projects</a>
-        <a href="contact/index.html">Contact</a>
-        <a href="resume/index.html">Resume</a>
-        <a href="https://github.com/HOYALIM" target="_blank">GitHub</a>
+        <a href="index.html" class="current">HOME</a>
+        <a href="projects/index.html">PROJECTS</a>
+        <a href="contact/index.html">CONTACT</a>
+        <a href="resume/index.html">RESUME</a>
+        <a href="https://github.com/HOYALIM" target="_blank">GITHUB</a>
     </nav>
     
+    <!-- Theme toggle switch - Toggle style -->
+    <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle-switch">
+            <div class="toggle-track">
+                <div class="toggle-slider"></div>
+            </div>
+        </button>
+    </div>
+    
     <h1>Ho Lim</h1>
-    <img src="images/studio_portrait_15.png" alt="Ho Lim의 프로필 사진">
     <p>Hello! I'm a data science student passionate about machine learning and data visualization. Through this site, I aim to share my projects and experiences in the field of data science and visualization.</p>
+    <img src="images/studio_portrait_15.png" alt="Ho Lim의 프로필 사진">
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        function updateThemeIcon(theme) {
+            // Toggle switch is now handled by CSS animations
+        }
+    </script>
 </body>
 </html>
