@@ -7,22 +7,7 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav>
-        <a href="../index.html">HOME</a>
-        <a href="../projects/index.html">PROJECTS</a>
-        <a href="../contact/index.html">CONTACT</a>
-        <a href="index.html" class="current">RESUME</a>
-        <a href="https://github.com/HOYALIM" target="_blank">GITHUB</a>
-    </nav>
     
-    <!-- Theme toggle switch - Toggle style -->
-    <div class="theme-toggle-container">
-        <button id="theme-toggle" class="theme-toggle-switch">
-            <div class="toggle-track">
-                <div class="toggle-slider"></div>
-            </div>
-        </button>
-    </div>
     
     <div class="resume-header">
         <h1>Ho Lim</h1>
@@ -49,37 +34,47 @@
                 <p>University of California, San Diego</p>
             </header>
             <div class="coursework-section">
-                <div class="coursework-toggle">
-                    <h4 class="coursework-header">
-                        <span>Relevant Coursework</span>
-                        <span class="toggle-icon">▼</span>
-                    </h4>
-                    <div class="coursework-content">
-                        <div class="coursework-category">
-                            <h5>Data Science Courses</h5>
-                            <div class="coursework-list">
-                                <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC10" target="_blank" class="coursework-item">DSC 10 - Principles of Data Science</a>
-                                <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC20" target="_blank" class="coursework-item">DSC 20 - Programming and Basic Data Structures</a>
-                                <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC30" target="_blank" class="coursework-item">DSC 30 - Data Structures and Algorithms</a>
-                                <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC40A" target="_blank" class="coursework-item">DSC 40A/B - Theoretical Foundations of Data Science</a>
-                                <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC80" target="_blank" class="coursework-item">DSC 80 - Practice and Application of Data Science</a>
-                                <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC100" target="_blank" class="coursework-item">DSC 100 - Introduction to Data Management</a>
-                                <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC102" target="_blank" class="coursework-item">DSC 102 - Systems for Scalable Analytics</a>
-                                <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC106" target="_blank" class="coursework-item">DSC 106 - Introduction to Data Visualization</a>
-                                <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC140A" target="_blank" class="coursework-item">DSC 140A/B - Probabilistic Modeling and Machine Learning</a>
-                                <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC148" target="_blank" class="coursework-item">DSC 148 - Introduction to Data Mining</a>
-                                <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC160" target="_blank" class="coursework-item">DSC 160 - Data Science and the Arts</a>
-                                <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC190" target="_blank" class="coursework-item">DSC 190 - Data Science Project Sequence</a>
-                            </div>
+                <div class="coursework-dropdown">
+                    <div class="coursework-main-header">
+                        <h4>Relevant Coursework</h4>
+                        <span class="dropdown-icon">▼</span>
+                    </div>
+                    <div class="coursework-dropdown-content">
+                        <div class="coursework-option" data-category="dsc">
+                            <span>Data Science Courses</span>
+                            <span class="option-icon">▶</span>
                         </div>
-                        <div class="coursework-category">
-                            <h5>Mathematics Courses</h5>
-                            <div class="coursework-list">
-                                <a href="https://catalog.ucsd.edu/courses/MATH.html#MATH18" target="_blank" class="coursework-item">MATH 18 - Linear Algebra</a>
-                                <a href="https://catalog.ucsd.edu/courses/MATH.html#MATH183" target="_blank" class="coursework-item">MATH 183 - Statistical Methods</a>
-                                <a href="https://catalog.ucsd.edu/courses/MATH.html#MATH189" target="_blank" class="coursework-item">MATH 189 - Exploratory Data Analysis and Inference</a>
-                            </div>
+                        <div class="coursework-option" data-category="math">
+                            <span>Mathematics Courses</span>
+                            <span class="option-icon">▶</span>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Data Science Courses Content -->
+                <div class="coursework-content" id="dsc-courses">
+                    <div class="coursework-list">
+                        <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC10" target="_blank" class="coursework-item">DSC 10 - Principles of Data Science</a>
+                        <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC20" target="_blank" class="coursework-item">DSC 20 - Programming and Basic Data Structures</a>
+                        <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC30" target="_blank" class="coursework-item">DSC 30 - Data Structures and Algorithms</a>
+                        <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC40A" target="_blank" class="coursework-item">DSC 40A/B - Theoretical Foundations of Data Science</a>
+                        <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC80" target="_blank" class="coursework-item">DSC 80 - Practice and Application of Data Science</a>
+                        <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC100" target="_blank" class="coursework-item">DSC 100 - Introduction to Data Management</a>
+                        <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC102" target="_blank" class="coursework-item">DSC 102 - Systems for Scalable Analytics</a>
+                        <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC106" target="_blank" class="coursework-item">DSC 106 - Introduction to Data Visualization</a>
+                        <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC140A" target="_blank" class="coursework-item">DSC 140A/B - Probabilistic Modeling and Machine Learning</a>
+                        <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC148" target="_blank" class="coursework-item">DSC 148 - Introduction to Data Mining</a>
+                        <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC160" target="_blank" class="coursework-item">DSC 160 - Data Science and the Arts</a>
+                        <a href="https://catalog.ucsd.edu/courses/DSC.html#DSC190" target="_blank" class="coursework-item">DSC 190 - Data Science Project Sequence</a>
+                    </div>
+                </div>
+
+                <!-- Mathematics Courses Content -->
+                <div class="coursework-content" id="math-courses">
+                    <div class="coursework-list">
+                        <a href="https://catalog.ucsd.edu/courses/MATH.html#MATH18" target="_blank" class="coursework-item">MATH 18 - Linear Algebra</a>
+                        <a href="https://catalog.ucsd.edu/courses/MATH.html#MATH183" target="_blank" class="coursework-item">MATH 183 - Statistical Methods</a>
+                        <a href="https://catalog.ucsd.edu/courses/MATH.html#MATH189" target="_blank" class="coursework-item">MATH 189 - Exploratory Data Analysis and Inference</a>
                     </div>
                 </div>
             </div>
@@ -182,6 +177,6 @@
         </div>
     </section>
     
-    <script src="../theme.js"></script>
+    <script type="module" src="../global.js"></script>
 </body>
 </html>

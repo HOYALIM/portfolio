@@ -110,6 +110,7 @@ nav a:hover {
   z-index: 1000;
 }
 
+
 .theme-toggle-switch {
   width: 50px;
   height: 24px;
@@ -167,18 +168,18 @@ nav a:hover {
 
 /* Dark mode - slider moves to right, track changes color */
 [data-theme="dark"] .theme-toggle-switch {
-  background: #4a5568;
+  background: #333333;
 }
 
 [data-theme="dark"] .toggle-slider {
   left: 29px;
-  background: #2d3748;
+  background: #000000;
   transform: translateZ(0);
 }
 
 /* Dark mode hover effects */
 [data-theme="dark"] .theme-toggle-switch:hover {
-  background: #5a6578;
+  background: #404040;
 }
 
 /* Homepage layout adjustments */
@@ -237,11 +238,12 @@ form {
 }
 
 form label {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-column: 1 / -1;
-  grid-row: span 3;
-  margin-block: 0.5em;
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: 500;
+  color: var(--text-color);
+  vertical-align: top;
+  line-height: 1.2;
 }
 
 form input,
@@ -249,14 +251,16 @@ form textarea {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  margin-block: 0.5em;
-  padding: 0.5em;
+  margin-bottom: 1em;
+  padding: 0.8em;
   border: 1px solid var(--form-border);
   border-radius: 4px;
   font-size: 1em;
   font-family: inherit;
   background-color: var(--form-bg);
   color: var(--text-color);
+  vertical-align: top;
+  line-height: 1.2;
   transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
@@ -265,6 +269,22 @@ form textarea:focus {
   outline: none;
   border-color: var(--color-accent);
   box-shadow: 0 0 0 2px oklch(65% 50% 0 / 0.2);
+}
+
+form button {
+  background: var(--color-accent);
+  color: white;
+  padding: 0.8em 2em;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: var(--color-accent-dark, #0056b3);
 }
 
 form button {
@@ -493,16 +513,16 @@ section {
   margin-top: 1.5em;
 }
 
-/* Coursework toggle styling */
-.coursework-toggle {
-  margin-top: 1.5em;
+/* Coursework dropdown styling */
+.coursework-dropdown {
+  position: relative;
+  margin: 1.5em 0;
 }
 
-.coursework-header {
+.coursework-main-header {
   color: var(--color-accent);
-  font-size: 1.1em;
+  font-size: 1.2em;
   font-weight: 600;
-  margin-bottom: 0;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -514,47 +534,82 @@ section {
   transition: all 0.3s ease;
 }
 
-.coursework-header:hover {
+.coursework-main-header:hover {
   background: rgba(0,0,0,0.05);
   border-color: var(--color-accent);
 }
 
-.toggle-icon {
+.dropdown-icon {
   font-size: 0.9em;
   transition: transform 0.3s ease;
+  color: var(--color-accent);
+}
+
+.coursework-dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 1000;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.coursework-dropdown-content.expanded {
+  max-height: 200px;
+}
+
+.coursework-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8em 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.coursework-option:last-child {
+  border-bottom: none;
+}
+
+.coursework-option:hover {
+  background: rgba(0,0,0,0.05);
+  color: var(--color-accent);
+}
+
+.option-icon {
+  font-size: 0.8em;
+  color: var(--color-accent);
+  transition: transform 0.3s ease;
+}
+
+.coursework-option:hover .option-icon {
+  transform: translateX(3px);
 }
 
 .coursework-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
+  margin-top: 1em;
 }
 
 .coursework-content.expanded {
   max-height: 1000px;
 }
 
-.coursework-content.expanded .toggle-icon {
-  transform: rotate(180deg);
-}
-
-.coursework-category {
-  margin: 1.5em 0;
-}
-
-.coursework-category h5 {
-  color: var(--text-color);
-  font-size: 1em;
-  font-weight: 600;
-  margin-bottom: 0.8em;
-  padding-left: 0.5em;
-  border-left: 3px solid var(--color-accent);
-}
-
 .coursework-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 0.8em;
+  padding: 1em 0;
 }
 
 .coursework-grid {

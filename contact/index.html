@@ -7,47 +7,30 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav>
-        <a href="../index.html">HOME</a>
-        <a href="../projects/index.html">PROJECTS</a>
-        <a href="index.html" class="current">CONTACT</a>
-        <a href="../resume/index.html">RESUME</a>
-        <a href="https://github.com/HOYALIM" target="_blank">GITHUB</a>
-    </nav>
     
-    <!-- Theme toggle switch - Toggle style -->
-    <div class="theme-toggle-container">
-        <button id="theme-toggle" class="theme-toggle-switch">
-            <div class="toggle-track">
-                <div class="toggle-slider"></div>
-            </div>
-        </button>
-    </div>
     
-    <h1>Contact</h1>
-    <p>Get in touch with me!</p>
     
-    <form action="mailto:hol050@ucsd.edu" method="POST" enctype="text/plain">
+    <form action="mailto:hol050@ucsd.edu">
         <label>
             Your Email:
-            <input type="email" name="email" placeholder="Your.email@example.com" required>
         </label>
+        <input type="email" name="email" placeholder="YOUR.EMAIL@EXAMPLE.COM" required>
         
         <label>
             Subject:
-            <input type="text" name="subject" placeholder="Enter your subject here" required>
         </label>
+        <input type="text" name="subject" placeholder="ENTER YOUR SUBJECT HERE" required>
         
         <label>
             Message:
-            <textarea name="body" placeholder="Enter your message here" required></textarea>
         </label>
+        <textarea name="body" placeholder="ENTER YOUR MESSAGE HERE" required></textarea>
         
         <button type="submit">Send Message</button>
     </form>
     
     <p><strong>Alternative:</strong> You can also reach me directly at <a href="mailto:hol050@ucsd.edu">hol050@ucsd.edu</a></p>
     
-    <script src="../theme.js"></script>
+    <script type="module" src="../global.js"></script>
 </body>
 </html>
