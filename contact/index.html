@@ -40,7 +40,7 @@
         
         <label>
             Message:
-            <textarea name="body" placeholder="Enter your message here" required style="font-family: inherit;"></textarea>
+            <textarea name="body" placeholder="Enter your message here" required></textarea>
         </label>
         
         <button type="submit">Send Message</button>
@@ -48,28 +48,6 @@
     
     <p><strong>Alternative:</strong> You can also reach me directly at <a href="mailto:hol050@ucsd.edu">hol050@ucsd.edu</a></p>
     
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-        
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        body.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
-        
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-        
-        function updateThemeIcon(theme) {
-            // Toggle switch is now handled by CSS animations
-        }
-    </script>
+    <script src="../theme.js"></script>
 </body>
 </html>

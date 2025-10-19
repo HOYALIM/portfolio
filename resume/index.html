@@ -37,7 +37,7 @@
         <p><em>Data Scientist (6+ yrs) using analytics, machine learning, and BI to optimize operations and monetize opportunities. Skilled in SQL, Python, and Tableau; built scalable pipelines and dashboards. Managed $700M portfolio with daily pricing decisions and ran large scale experimentation to anticipate market prices and risk.</em></p>
     </header>
     
-    <section>
+    <section class="education-section">
         <h2>Education</h2>
         <article>
             <header>
@@ -49,7 +49,7 @@
         </article>
     </section>
     
-    <section>
+    <section class="skills-section">
         <h2>Skills & Expertise</h2>
         <article>
             <h3>Languages & Frameworks</h3>
@@ -61,7 +61,7 @@
         </article>
     </section>
     
-    <section>
+    <section class="experience-section">
         <h2>Professional Experience</h2>
         <article>
             <header>
@@ -116,46 +116,22 @@
         </article>
     </section>
     
-    <section>
+    <section class="projects-section">
         <h2>Projects</h2>
         <article>
             <header>
                 <h3>U.S. Power Outages ML Analysis</h3>
-                <time>June 2025</time>
             </header>
             <p>Performed EDA, missing value imputation, cause-based duration analysis, and regression-based prediction. <a href="https://www.kaggle.com/code/allthatglitter/u-s-power-outages-duration-analysis" target="_blank">View on Kaggle</a></p>
         </article>
         <article>
             <header>
                 <h3>Immigration Policy and Urban Productivity</h3>
-                <time>Sep 2024</time>
             </header>
             <p>Conducted data preprocessing and modeling focused on LinkedIn geospatial data to investigate correlations between immigration policy and urban productivity.</p>
         </article>
     </section>
     
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-        
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        body.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
-        
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-        
-        function updateThemeIcon(theme) {
-            // Toggle switch is now handled by CSS animations
-        }
-    </script>
+    <script src="../theme.js"></script>
 </body>
 </html>
