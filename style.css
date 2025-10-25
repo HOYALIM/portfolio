@@ -1,22 +1,26 @@
 /* Define accent color for the entire document */
 :root {
-  --color-accent: oklch(65% 50% 0);
-  --bg-color: white;
-  --text-color: black;
-  --nav-bg: white;
-  --border-color: oklch(80% 3% 200);
-  --form-bg: white;
-  --form-border: oklch(80% 3% 200);
+  --color-accent: #00ff88;
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --nav-bg: #000000;
+  --border-color: #333333;
+  --form-bg: #111111;
+  --form-border: #333333;
+  --card-bg: #111111;
+  --shadow-color: rgba(0, 255, 136, 0.1);
 }
 
-/* Dark mode variables */
+/* Dark mode variables (same as light mode for black theme) */
 [data-theme="dark"] {
-  --bg-color: #1a1a1a;
-  --text-color: #e0e0e0;
-  --nav-bg: #2a2a2a;
-  --border-color: oklch(40% 3% 200);
-  --form-bg: #2a2a2a;
-  --form-border: oklch(40% 3% 200);
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --nav-bg: #000000;
+  --border-color: #333333;
+  --form-bg: #111111;
+  --form-border: #333333;
+  --card-bg: #111111;
+  --shadow-color: rgba(0, 255, 136, 0.1);
 }
 
 body {
@@ -30,6 +34,8 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+  min-height: 100vh;
 }
 
 /* Navigation styling with larger size and hover effects */
@@ -40,11 +46,15 @@ nav {
   border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
-  background-color: var(--nav-bg);
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
   z-index: 100;
   padding: 0.5em 0;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s ease;
   gap: 0.5em;
+  border-radius: 12px;
+  margin: 0 0 2em 0;
+  box-shadow: 0 4px 20px var(--shadow-color);
 }
 
 nav a {
@@ -58,6 +68,9 @@ nav a {
   font-weight: 500;
   border-bottom: 0.4em solid transparent;
   transition: all 0.3s ease;
+  border-radius: 8px;
+  margin: 0.2em;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 /* Responsive navigation for smaller screens */
@@ -182,19 +195,187 @@ nav a:hover {
   background: #404040;
 }
 
-/* Homepage layout adjustments */
-h1 {
-  font-size: 400%;
-  line-height: 1.1;
-  text-wrap: balance;
-  margin-bottom: 0.5em;
+/* Hero section layout */
+.hero-section {
+  display: flex;
+  flex-direction: row-reverse; /* Image on left, text on right */
+  align-items: center;
+  gap: 2em; /* Reduced gap for closer positioning */
+  margin-bottom: 4em;
+  padding: 3em 0;
 }
 
-img {
-  width: 70%;
-  height: auto;
-  display: block;
-  margin: 0 auto 1.5em auto;
+.hero-content {
+  flex: 1;
+  text-align: right;
+}
+
+/* System label */
+.system-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #00ff88;
+  margin-bottom: 0.5em;
+  text-shadow: 0 0 10px #00ff88;
+  animation: blink 2s infinite;
+}
+
+/* Name styling */
+.hero-content h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 5.5em;
+  font-weight: 700;
+  line-height: 0.9;
+  margin-bottom: 0.5em;
+  color: var(--text-color);
+  letter-spacing: 0.1em;
+  text-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.1);
+  animation: name-glow 3s ease-in-out infinite alternate;
+}
+
+/* Cyber title container */
+.cyber-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+/* Individual cyber lines */
+.cyber-line {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.4em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: cyber-glow 2s ease-in-out infinite alternate;
+  margin-bottom: 0.2em;
+}
+
+/* Color variations */
+.cyber-line.green {
+  color: #00ff88;
+  text-shadow: 
+    0 0 10px #00ff88,
+    0 0 20px #00ff88,
+    0 0 30px #00ff88;
+}
+
+.cyber-line.blue {
+  color: #0088ff;
+  text-shadow: 
+    0 0 10px #0088ff,
+    0 0 20px #0088ff,
+    0 0 30px #0088ff;
+}
+
+.cyber-line.red {
+  color: #ff4444;
+  text-shadow: 
+    0 0 10px #ff4444,
+    0 0 20px #ff4444,
+    0 0 30px #ff4444;
+}
+
+/* Animations */
+@keyframes name-glow {
+  0% {
+    text-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.3),
+      0 0 40px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    text-shadow: 
+      0 0 30px rgba(255, 255, 255, 0.5),
+      0 0 60px rgba(255, 255, 255, 0.2),
+      0 0 80px rgba(255, 255, 255, 0.1);
+  }
+}
+
+@keyframes cyber-glow {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.hero-image {
+  width: 500px; /* 2x larger than original */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 12px; /* Rounded rectangle */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Subtle shadow by default */
+  transition: all 0.5s ease-in-out;
+  object-fit: cover; /* Ensure image covers the area properly */
+  object-position: center; /* Center the image */
+  border: 2px solid var(--border-color); /* Subtle border by default */
+}
+
+.hero-image:hover {
+  transform: scale(1.05); /* Only scale, no rotation */
+  box-shadow: 
+    0 0 40px var(--shadow-color), 
+    0 0 20px var(--color-accent),
+    0 0 60px rgba(0, 255, 136, 0.3); /* Neon glow only on hover */
+  border: 3px solid var(--color-accent); /* Green border only on hover */
+}
+
+/* Responsive design for hero section */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 2em;
+    padding: 2em 0;
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+  
+  .hero-image {
+    width: 300px; /* 2x larger for mobile */
+    border-radius: 12px; /* Rounded rectangle */
+    margin: 0 auto;
+  }
+  
+  .hero-content h1 {
+    font-size: 4em;
+  }
+  
+  .system-label {
+    font-size: 1em;
+  }
+  
+  .cyber-line {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 3em;
+  }
+  
+  .system-label {
+    font-size: 0.9em;
+  }
+  
+  .cyber-line {
+    font-size: 1em;
+  }
+  
+  .hero-image {
+    width: 250px; /* 2x larger for small mobile */
+  }
 }
 
 p {
@@ -207,7 +388,7 @@ p {
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  gap: 1em;
+  gap: 1.5em;
   margin-top: 2em;
 }
 
@@ -216,6 +397,18 @@ p {
   grid-template-rows: subgrid;
   grid-row: span 3;
   margin: 0;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.projects article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px var(--shadow-color);
+  border-color: var(--color-accent);
 }
 
 .projects h2 {
@@ -417,13 +610,14 @@ section {
 
 /* Experience cards styling */
 .experience-card {
-  background: var(--bg-color);
+  background: var(--card-bg);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 1.5em;
   margin-bottom: 1.5em;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  backdrop-filter: blur(10px);
 }
 
 .experience-card:hover {
@@ -701,4 +895,52 @@ a {
 
 a:hover {
   /* text-decoration: underline; - removed */
+}
+
+/* GitHub profile stats styling */
+#profile-stats {
+  margin-top: 1.5em;
+  padding: 2em;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  backdrop-filter: blur(10px);
+}
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8em;
+  margin: 0;
+}
+
+#profile-stats dt {
+  grid-row: 1;
+  font-weight: 500;
+  color: var(--color-accent);
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#profile-stats dd {
+  grid-row: 2;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Responsive design for GitHub stats */
+@media (max-width: 768px) {
+  #profile-stats dl {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  #profile-stats dl {
+    grid-template-columns: 1fr;
+  }
 }

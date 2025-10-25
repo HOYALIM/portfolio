@@ -1,0 +1,74 @@
+[
+  {
+    "title": "U.S. Power Outages ML Analysis",
+    "year": "2024",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=300&fit=crop",
+    "description": "Machine learning analysis of U.S. power outage data using Python, pandas, and scikit-learn. Performed EDA, missing value imputation, and regression-based prediction to identify factors affecting outage duration."
+  },
+  {
+    "title": "Immigration Policy & Urban Productivity",
+    "year": "2024",
+    "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop",
+    "description": "Data analysis project investigating correlations between immigration policy and urban productivity using LinkedIn geospatial data and statistical modeling techniques."
+  },
+  {
+    "title": "Fraud Detection System",
+    "year": "2023",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+    "description": "Built automated fraud detection system using feature engineering and machine learning algorithms, reducing annual fraud loss by $10M for financial services platform."
+  },
+  {
+    "title": "Loan Performance Dashboard",
+    "year": "2023",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+    "description": "Created real-time performance dashboards integrating macroeconomic and interest rates data, eliminating weekly leadership meetings and enabling data-driven decisions."
+  },
+  {
+    "title": "Predictive Credit Scoring Model",
+    "year": "2023",
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
+    "description": "Developed ML model to improve credit scoring accuracy, increasing K-S discrimination by 39% and AUROC to 0.78, resulting in 146.6% more approvals with 3% fewer defaults."
+  },
+  {
+    "title": "Blockchain Document Certification",
+    "year": "2022",
+    "image": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
+    "description": "Conducted data analysis and benchmarking for blockchain-based document certification project, contributing to white paper that guided $18M+ fundraising efforts."
+  },
+  {
+    "title": "Structured Finance Analytics",
+    "year": "2022",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=300&fit=crop",
+    "description": "Designed AWS and Google Cloud data warehouse for due diligence on terabytes of loan data, reducing costs by 10-30% and increasing operational efficiency by 30%."
+  },
+  {
+    "title": "Venture Capital Investment Analysis",
+    "year": "2022",
+    "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=300&fit=crop",
+    "description": "Led end-to-end investment process for Series A-B deals in fintech and enterprise software, sourcing 100+ startups and closing $80M in co-investments."
+  },
+  {
+    "title": "Automated Loan Processing",
+    "year": "2021",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop",
+    "description": "Built automated loan processing systems using BigQuery and Zapier, driving 4x YoY sales growth and managing over $700M+ in consumer loan facilities."
+  },
+  {
+    "title": "Data Visualization Portfolio",
+    "year": "2021",
+    "image": "https://images.unsplash.com/photo-1543286386-713bdd548da4?w=400&h=300&fit=crop",
+    "description": "Collection of interactive data visualizations created using D3.js, Tableau, and Python, showcasing various datasets and analytical insights."
+  },
+  {
+    "title": "Statistical Analysis Toolkit",
+    "year": "2021",
+    "image": "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=400&h=300&fit=crop",
+    "description": "Developed comprehensive statistical analysis toolkit using R and Python for exploratory data analysis, hypothesis testing, and regression modeling."
+  },
+  {
+    "title": "Database Design Project",
+    "year": "2020",
+    "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=300&fit=crop",
+    "description": "Designed and implemented relational database system for managing large-scale data operations, optimizing query performance and data integrity."
+  }
+]

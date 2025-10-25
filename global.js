@@ -3,6 +3,45 @@ console.log('IT\'S ALIVE!');
 // Utility function
 const $$ = (selector, context = document) => Array.from(context.querySelectorAll(selector));
 
+// Fetch JSON data from URL
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+    
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+// Render projects dynamically
+export function renderProjects(projects, container, headingLevel = 'h2') {
+  // Clear existing content
+  container.innerHTML = '';
+  
+  // Create and append each project
+  projects.forEach(project => {
+    const article = document.createElement('article');
+    article.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+    `;
+    container.appendChild(article);
+  });
+}
+
+// Fetch GitHub data
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
+
 // Navigation data
 const navData = [
   { text: 'HOME', href: '/index.html' },

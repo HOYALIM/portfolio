@@ -5,14 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ho Lim: Personal site and portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     
     
-    <h1>Ho Lim</h1>
-    <p>Hello! I'm a data science student passionate about machine learning and data visualization. Through this site, I aim to share my projects and experiences in the field of data science and visualization.</p>
-    <img src="images/studio_portrait_15.png" alt="Ho Lim의 프로필 사진">
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="system-label">System_User:</div>
+            <h1>HO LIM</h1>
+            <div class="cyber-title">
+                <div class="cyber-line green">>>> DATA SCIENTIST</div>
+                <div class="cyber-line blue">>>> AI ENGINEER</div>
+                <div class="cyber-line red">>>> FINANCE / FINTECH</div>
+            </div>
+        </div>
+        <img src="images/studio_portrait_3 (2).png" alt="Ho Lim의 프로필 사진" class="hero-image">
+    </div>
+    
+    <h2>Latest Projects</h2>
+    <div class="projects">
+      <!-- Dynamically added content will appear here -->
+    </div>
+    
+    <h2>GitHub Profile Stats</h2>
+    <div id="profile-stats">
+      <!-- GitHub data will be loaded here -->
+    </div>
     
     <script type="module" src="global.js"></script>
+    <script type="module" src="index.js" defer></script>
 </body>
 </html>
