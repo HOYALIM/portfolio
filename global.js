@@ -55,12 +55,26 @@ export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
 }
 
-// Navigation data
+// Get base path for GitHub Pages (e.g., '/portfolio/' or '/')
+function getBasePath() {
+  const pathname = window.location.pathname;
+  // Remove trailing filename and keep only directory path
+  const pathParts = pathname.split('/').filter(p => p);
+  // If pathname starts with repository name (portfolio), include it in base path
+  if (pathParts[0] === 'portfolio') {
+    return '/portfolio/';
+  }
+  // Otherwise assume root deployment
+  return '/';
+}
+
+// Navigation data with dynamic base path
+const basePath = getBasePath();
 const navData = [
-  { text: 'HOME', href: '/index.html' },
-  { text: 'PROJECTS', href: '/projects/index.html' },
-  { text: 'CONTACT', href: '/contact/index.html' },
-  { text: 'RESUME', href: '/resume/index.html' },
+  { text: 'HOME', href: `${basePath}index.html` },
+  { text: 'PROJECTS', href: `${basePath}projects/index.html` },
+  { text: 'CONTACT', href: `${basePath}contact/index.html` },
+  { text: 'RESUME', href: `${basePath}resume/index.html` },
   { text: 'GITHUB', href: 'https://github.com/HOYALIM', external: true }
 ];
 
