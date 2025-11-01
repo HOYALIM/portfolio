@@ -4,6 +4,9 @@ import { fetchJSON, renderProjects } from '../global.js';
 // Color scale for pie chart - using D3's category10 scheme (Lab 5 requirement)
 const colors = d3.scaleOrdinal(d3.schemeCategory10);
 
+// Store year-to-color mapping to ensure consistency
+const yearColorMap = new Map();
+
 // Selected year for filtering (null means no filter)
 let selectedYear = null;
 let allProjects = [];
@@ -52,7 +55,7 @@ function renderPieChart(visibleProjects) {
   const svg = d3.select('#projects-pie-plot');
   svg.selectAll('path').remove();
   
-  // Clear existing legend
+  // Clear existing legend items but keep the container
   const legend = d3.select('#projects-legend');
   legend.selectAll('li').remove();
   
@@ -63,7 +66,7 @@ function renderPieChart(visibleProjects) {
     (d) => d.year
   );
   
-  // Convert to array format
+  // Convert to array format and assign colors to years
   const data = Array.from(yearCounts, ([year, count]) => ({
     year: year,
     count: count
@@ -72,6 +75,16 @@ function renderPieChart(visibleProjects) {
   if (data.length === 0) {
     return; // No data to display
   }
+  
+  // Assign colors to each year and store in map (consistent across updates)
+  data.forEach((d, i) => {
+    if (!yearColorMap.has(d.year)) {
+      yearColorMap.set(d.year, colors(i));
+    }
+  });
+  
+  // Get the color for selected year from the map
+  const selectedColor = selectedYear ? yearColorMap.get(selectedYear) : null;
   
   // Create pie generator
   const pie = d3.pie()
@@ -85,12 +98,6 @@ function renderPieChart(visibleProjects) {
   
   // Generate arc data
   const arcs = pie(data);
-  
-  // Find the color for selected year
-  const selectedColorIndex = selectedYear 
-    ? data.findIndex(d => d.year === selectedYear)
-    : -1;
-  const selectedColor = selectedColorIndex >= 0 ? colors(selectedColorIndex) : null;
 
   // Draw paths
   svg.selectAll('path')
@@ -103,8 +110,8 @@ function renderPieChart(visibleProjects) {
       if (selectedYear && selectedColor) {
         return selectedColor;
       }
-      // Otherwise use each slice's own color
-      return colors(i);
+      // Otherwise use each year's stored color
+      return yearColorMap.get(d.data.year) || colors(i);
     })
     .attr('class', (d) => {
       return d.data.year === selectedYear ? 'selected' : '';
@@ -122,17 +129,14 @@ function renderPieChart(visibleProjects) {
       updateDisplay();
     });
   
-  // Create legend
-  legend.selectAll('li')
-    .data(data)
-    .enter()
+  // Create legend - always keep original colors regardless of selection
+  const legendItems = legend.selectAll('li')
+    .data(data);
+  
+  const legendItemsEnter = legendItems.enter()
     .append('li')
     .attr('class', (d) => {
       return d.year === selectedYear ? 'selected' : '';
-    })
-    .attr('style', (d, i) => {
-      const color = colors(i);
-      return `--color: ${color}`;
     })
     .style('cursor', 'pointer')
     .on('click', function(event, d) {
@@ -145,17 +149,36 @@ function renderPieChart(visibleProjects) {
       
       // Update display with new filters
       updateDisplay();
+    });
+  
+  // Add swatch and text to new items - always use stored color for each year
+  legendItemsEnter.each(function(d, i) {
+    const li = d3.select(this);
+    const originalColor = yearColorMap.get(d.year) || colors(i); // Use stored color for this year
+    
+    li.append('span')
+      .attr('class', 'legend-swatch')
+      .style('background-color', originalColor);
+    
+    li.append('span')
+      .attr('class', 'legend-text')
+      .text(`${d.year}: ${d.count}`);
+  });
+  
+  // Update existing items (class for selected state, but keep original colors)
+  legendItems.merge(legendItemsEnter)
+    .attr('class', (d) => {
+      return d.year === selectedYear ? 'selected' : '';
     })
     .each(function(d, i) {
       const li = d3.select(this);
-      const color = colors(i);
+      const originalColor = yearColorMap.get(d.year) || colors(i); // Always use stored color
       
-      li.append('span')
-        .attr('class', 'legend-swatch')
-        .style('background-color', color);
-      
-      li.append('span')
-        .text(`${d.year}: ${d.count}`);
+      // Ensure swatch keeps original color (not affected by selection)
+      const swatch = li.select('.legend-swatch');
+      if (!swatch.empty()) {
+        swatch.style('background-color', originalColor);
+      }
     });
 }
 
@@ -182,6 +205,14 @@ async function loadProjects() {
     // Fetch project data from JSON file
     const projects = await fetchJSON('../lib/projects.json');
     allProjects = projects;
+    
+    // Initialize year color mapping with all unique years from all projects
+    const allYears = [...new Set(projects.map(p => p.year))].sort((a, b) => a.localeCompare(b));
+    allYears.forEach((year, i) => {
+      if (!yearColorMap.has(year)) {
+        yearColorMap.set(year, colors(i));
+      }
+    });
     
     // Select the projects container and search input
     const projectsContainer = document.querySelector('.projects');

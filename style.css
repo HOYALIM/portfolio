@@ -542,10 +542,12 @@ p {
   border-radius: 2px;
   display: inline-block;
   flex-shrink: 0;
+  /* Legend swatch always keeps its original color - not affected by selection */
 }
 
+/* Selected legend item background changes, but swatch color stays original */
 #projects-legend li.selected .legend-swatch {
-  background-color: var(--color) !important;
+  /* Do not override the background-color - it should remain original */
 }
 
 /* Responsive: Legend vertical on smaller screens */
