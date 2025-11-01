@@ -28,11 +28,24 @@ export function renderProjects(projects, container, headingLevel = 'h2') {
   // Create and append each project
   projects.forEach(project => {
     const article = document.createElement('article');
+    
+    const descriptionDiv = document.createElement('div');
+    descriptionDiv.innerHTML = `<p>${project.description}</p>`;
+    
     article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
       <img src="${project.image}" alt="${project.title}">
-      <p>${project.description}</p>
     `;
+    article.appendChild(descriptionDiv);
+    
+    // Add year in bottom-right corner
+    if (project.year) {
+      const yearElement = document.createElement('time');
+      yearElement.textContent = project.year;
+      yearElement.className = 'project-year';
+      article.appendChild(yearElement);
+    }
+    
     container.appendChild(article);
   });
 }

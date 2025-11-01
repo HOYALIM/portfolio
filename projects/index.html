@@ -5,16 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Ho Lim: Personal site and portfolio</title>
     <link rel="stylesheet" href="../style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
+    <!-- Projects title with count -->
+    <h1 id="projects-title">Projects</h1>
     
+    <!-- Pie chart container -->
+    <div id="pie-chart-container">
+        <svg id="projects-pie-plot" viewBox="-50 -50 100 100"></svg>
+    </div>
     
+    <!-- Legend container below pie chart -->
+    <div id="legend-container">
+        <ul id="projects-legend"></ul>
+    </div>
+    
+    <!-- Search field -->
+    <input type="text" id="project-search" placeholder="Search projects...">
     
     <div class="projects">
         <!-- Projects will be loaded dynamically from JSON -->
     </div>
     
     <script type="module" src="../global.js"></script>
-    <script type="module" src="../projects.js"></script>
+    <script type="module" src="projects.js"></script>
 </body>
 </html>
