@@ -124,8 +124,8 @@ function setupDarkMode() {
   container.appendChild(button);
   document.body.appendChild(container);
   
-  // Load saved theme
-  const currentTheme = localStorage.getItem('theme') || 'light';
+  // Load saved theme (default to dark)
+  const currentTheme = localStorage.getItem('theme') || 'dark';
   document.body.setAttribute('data-theme', currentTheme);
   
   // Toggle theme
