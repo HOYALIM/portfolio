@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Analysis - Ho Lim: Personal site and portfolio</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="meta-hero">
+        <h1>Code Analysis</h1>
+        <p class="meta-subtitle">Visualizing codebase statistics, commit patterns, and development metrics</p>
+    </div>
+    
+    <!-- GitHub Stats Card -->
+    <section id="github-stats" class="meta-section">
+        <div class="meta-card">
+            <h2 class="meta-section-title">GitHub Statistics</h2>
+            <div id="github-stats-container"></div>
+        </div>
+    </section>
+    
+    <!-- Summary statistics section -->
+    <section id="summary-stats" class="meta-section">
+        <div class="meta-card">
+            <h2 class="meta-section-title">Summary Statistics</h2>
+            <div id="stats-container"></div>
+        </div>
+    </section>
+    
+    <!-- Scatterplot section -->
+    <section id="scatterplot-section" class="meta-section">
+        <div class="meta-card">
+            <h2 class="meta-section-title">Commits by time of day</h2>
+            <p class="meta-description">Interactive scatterplot showing commit times and dates. Hover over points for details, or drag to select multiple commits.</p>
+            <div id="scatterplot-container">
+                <svg id="scatterplot"></svg>
+            </div>
+            <div class="selection-info">
+                <p id="selection-count">No commits selected</p>
+                <dl id="language-breakdown" class="stats"></dl>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Tooltip (hidden by default) -->
+    <div id="tooltip" style="display: none;"></div>
+    
+    <script type="module" src="../global.js"></script>
+    <script type="module" src="meta.js"></script>
+</body>
+</html>
+
