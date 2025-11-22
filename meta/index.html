@@ -6,11 +6,19 @@
     <title>Code Analysis - Ho Lim: Personal site and portfolio</title>
     <link rel="stylesheet" href="../style.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/[email protected]/dist/scrollama.min.js"></script>
 </head>
 <body>
-    <div class="meta-hero">
-        <h1>Code Analysis</h1>
-        <p class="meta-subtitle">Visualizing codebase statistics, commit patterns, and development metrics</p>
+    <!-- Meta Header (similar to Resume header) -->
+    <div class="meta-header">
+        <h1>Ho Lim</h1>
+        <p class="title">Code Analysis & Development Metrics</p>
+        <div class="links">
+            <a href="https://drive.google.com/file/d/1kuDVXU8Qx7Fpg1H61M1IrpZ0lag0odDW/view?usp=sharing" target="_blank">📄 View Resume (PDF)</a>
+            <a href="https://drive.google.com/uc?export=download&id=1kuDVXU8Qx7Fpg1H61M1IrpZ0lag0odDW" download>⬇️ Download Resume (PDF)</a>
+            <a href="https://www.linkedin.com/in/ho-lim-167859165/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/HOYALIM" target="_blank">GitHub</a>
+        </div>
     </div>
     
     <!-- GitHub Stats Card -->
@@ -29,23 +37,37 @@
         </div>
     </section>
     
-    <!-- Scatterplot section -->
+    <!-- Scatterplot section with Scrollytelling -->
     <section id="scatterplot-section" class="meta-section">
         <div class="meta-card">
             <h2 class="meta-section-title">Commits by time of day</h2>
             <p class="meta-description">Interactive scatterplot showing commit times and dates. Hover over points for details, or drag to select multiple commits.</p>
+            
+            <!-- Time filter slider (Step 1) -->
+            <div class="time-filter-container">
+                <label>
+                    Show commits until:
+                    <input type="range" id="commit-progress" min="0" max="100" value="100" />
+                    <time id="commit-time"></time>
+                </label>
+            </div>
+            
+            <!-- Step 2: Unit visualization (files) -->
+            <div id="files-step2" class="unit-viz-container"></div>
+            
+            <!-- Summary stats for filtered commits -->
+            <div id="filtered-stats" class="filtered-stats-container"></div>
+            
+            <!-- Scatterplot container (no scrollytelling) -->
             <div id="scatterplot-container">
                 <svg id="scatterplot"></svg>
-            </div>
-            <div class="selection-info">
-                <p id="selection-count">No commits selected</p>
-                <dl id="language-breakdown" class="stats"></dl>
             </div>
         </div>
     </section>
     
     <!-- Tooltip (hidden by default) -->
     <div id="tooltip" style="display: none;"></div>
+    
     
     <script type="module" src="../global.js"></script>
     <script type="module" src="meta.js"></script>

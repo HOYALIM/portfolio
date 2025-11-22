@@ -97,65 +97,21 @@
     </section>
     
     <section class="experience-section">
-        <h2>Professional Experience</h2>
-        <div class="experience-card">
-            <header>
-                <div class="title-info">
-                    <h3>Data Scientist, Strategy & Operations | Senior Manager, Corporate Development</h3>
-                    <p>8PERCENT: Korea's first digital lending platform (similar to Lendingclub)</p>
+        <div class="experience-container">
+            <!-- Left side: Title and controls -->
+            <div class="experience-left">
+                <h2 class="experience-main-title">SELECTED<br />EXPERIENCE</h2>
+                <div class="lang-toggle-container">
+                    <button class="lang-toggle active" data-lang="en">EN</button>
+                    <button class="lang-toggle" data-lang="ko">한글</button>
                 </div>
-                <time>May 2022 – Dec 2023</time>
-            </header>
-            <ul>
-                <li>Built performance dashboards integrating macroeconomic and interest rates data, eliminating weekly leadership rate-setting meetings (~10 leaders, saving 20+ hours monthly) and enabling real-time performance monitoring</li>
-                <li>Directed predictive model overhaul as PM, using ML and statistical analytics to improve K-S discrimination by 39% and AUROC to 0.78, increasing approvals by 146.6% and cutting defaults by 3%</li>
-                <li>Optimized loan operations through process automation, cutting personal loan turnaround from 2 days to 8 hours and mortgages from 7 days to 24 hours</li>
-                <li>Collaborated with the CEO and key stakeholders to perform quantitative analysis, macro scenario analysis, financial modeling, M&A forecasting, strategic planning, and due diligence</li>
-            </ul>
-        </div>
-        
-        <div class="experience-card">
-            <header>
-                <div class="title-info">
-                    <h3>Senior Associate, Venture Investment</h3>
-                    <p>Hisstory Venture Investments (Venture Capital)</p>
-                </div>
-                <time>June 2021 – Dec 2021</time>
-            </header>
-            <ul>
-                <li>Led end-to-end investment process for Series A-B deals in fintech and enterprise software</li>
-                <li>Sourced 100+ startups, led diligence on 12 deals, and closed $80M in co-investments, including 2 companies that went public</li>
-            </ul>
-        </div>
-        
-        <div class="experience-card">
-            <header>
-                <div class="title-info">
-                    <h3>Quant Data Analyst, Structured Finance & Institutional Investment Sales</h3>
-                    <p>PFC Technologies: Financial Services for lending, investments, and risk solutions (similar to SoFi)</p>
-                </div>
-                <time>Apr 2019 – Jan 2021</time>
-            </header>
-            <ul>
-                <li>Built automated loan processing systems and structured finance workflows using BigQuery and Zapier, driving 4x YoY sales growth and managing over $700M+ in consumer loan facilities</li>
-                <li>Designed and implemented AWS, Google Cloud data warehouse for due diligence on terabytes of loan data, reducing costs by 10-30% and increasing operational efficiency by 30%</li>
-                <li>Conducted structuring, pricing, execution, and securitization of structured debt, distributing through Korea's largest fintech platforms, KakaoPay and Toss (~70M combined users)</li>
-                <li>Built lending fraud detection system using feature engineering and ML, reduced annual fraud loss by $10M</li>
-            </ul>
-        </div>
-        
-        <div class="experience-card">
-            <header>
-                <div class="title-info">
-                    <h3>Analyst, Business Development</h3>
-                    <p>XBLOCK Systems (Blockchain System)</p>
-                </div>
-                <time>Mar 2018 – Mar 2019</time>
-            </header>
-            <ul>
-                <li>Conducted data analysis and benchmarking for blockchain-based document certification project</li>
-                <li>Contributed to white paper that guided product design and investor communications, supporting IR for $18M+ in fundraising</li>
-            </ul>
+                <p class="experience-subtitle">A timeline of the roles shaping my current work.</p>
+            </div>
+            
+            <!-- Right side: Experience items -->
+            <div class="experience-right" id="experience-list">
+                <!-- Experience items will be rendered here -->
+            </div>
         </div>
     </section>
     
@@ -178,6 +134,8 @@
         </div>
     </section>
     
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script type="module" src="../global.js"></script>
+    <script type="module" src="resume.js"></script>
 </body>
 </html>

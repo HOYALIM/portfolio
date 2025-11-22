@@ -1130,49 +1130,87 @@ a:hover {
   }
 }
 
-/* Meta analysis page styles */
-.meta-hero {
-  text-align: center;
-  margin: 3em 0 2em;
-  padding: 2em 0;
+/* Meta header (similar to Resume header) */
+.meta-header {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2em;
+  margin-bottom: 3em;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  transition: all 0.3s ease;
 }
 
-.meta-hero h1 {
+.meta-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--shadow-color);
+  border-color: var(--color-accent);
+}
+
+.meta-header h1 {
   font-size: 2.5em;
+  font-weight: 300;
   margin-bottom: 0.5em;
-  background: linear-gradient(135deg, var(--color-accent), #00ccff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-color);
 }
 
-.meta-subtitle {
-  font-size: 1.1em;
-  color: var(--text-color);
-  opacity: 0.8;
-  margin: 0;
+.meta-header .title {
+  font-size: 1.2em;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.meta-header .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.meta-header .links a {
+  padding: 0.5em 1em;
+  background: var(--color-accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.meta-header .links a:hover {
+  background: oklch(55% 50% 0);
+  transform: translateY(-1px);
 }
 
 .meta-section {
-  margin: 2.5em 0;
+  margin-bottom: 3em;
+  margin-top: 3em;
+  padding-top: 2em;
+  border-top: 3px solid var(--color-accent);
 }
 
 .meta-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 2.5em;
-  box-shadow: 0 8px 24px var(--shadow-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  padding: 2em;
+  margin-bottom: 3em;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  transition: all 0.3s ease;
 }
 
 .meta-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px var(--shadow-color);
+  box-shadow: 0 8px 30px var(--shadow-color);
+  border-color: var(--color-accent);
 }
 
 .meta-section-title {
   font-size: 1.8em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   margin-bottom: 1em;
   color: var(--color-accent);
   border-bottom: 2px solid var(--color-accent);
@@ -1319,6 +1357,353 @@ a:hover {
   margin-top: 1em;
 }
 
+/* Inline file types display */
+.file-types-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
+
+.file-type-badge {
+  display: inline-block;
+  padding: 0.3em 0.8em;
+  background: var(--form-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+/* Selection stats display (R2D3 style) */
+.selection-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  margin-bottom: 1em;
+  padding: 1em;
+  background: var(--form-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.stat-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+.stat-label {
+  font-weight: 600;
+  color: var(--color-accent);
+  font-size: 0.9em;
+}
+
+.stat-value {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.language-breakdown-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
+
+.language-badge {
+  display: inline-block;
+  padding: 0.3em 0.8em;
+  background: var(--form-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+.selection-info {
+  margin-top: 1em;
+  padding: 1em;
+  background: var(--form-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  min-height: 3em;
+}
+
+.filtered-stats-container {
+  margin: 2em 0;
+}
+
+/* Resume Experience Section - Layout matching personal_web */
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 2em;
+}
+
+@media (min-width: 768px) {
+  .experience-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.experience-left {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .experience-left {
+    width: 33.333%;
+    position: sticky;
+    top: 2rem;
+    align-self: flex-start;
+  }
+}
+
+.experience-main-title {
+  font-size: clamp(21.76px, 3.84vw, 58.88px); /* 20% smaller */
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.85;
+  margin-bottom: 1em;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+}
+
+.lang-toggle-container {
+  display: flex;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+.lang-toggle {
+  padding: 0.5em 1em;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+.lang-toggle.active {
+  background: white;
+  color: black;
+}
+
+.lang-toggle:not(.active):hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.experience-subtitle {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-top: 2em;
+  line-height: 1.6;
+}
+
+.experience-right {
+  flex: 1;
+}
+
+.experience-item {
+  margin-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 2.5rem;
+}
+
+.experience-item:last-child {
+  border-bottom: none;
+}
+
+.experience-entry {
+  width: 100%;
+}
+
+.experience-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.experience-company {
+  font-size: 1.8em; /* Increased for better visibility */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.experience-period {
+  font-size: 0.9em; /* Increased for better visibility */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-color);
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.experience-role {
+  font-size: 0.9em; /* Increased for better visibility */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-color);
+  opacity: 0.8;
+  margin-bottom: 1em;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+.experience-summary {
+  font-size: 1em; /* Increased for better visibility */
+  line-height: 1.6;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+#selection-count {
+  color: var(--text-color);
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+/* Lab 8: Time filter slider */
+.time-filter-container {
+  margin: 1.5em 0;
+  padding: 1em;
+  background: var(--form-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.time-filter-container label {
+  display: flex;
+  align-items: baseline;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.time-filter-container input[type="range"] {
+  flex: 1;
+  min-width: 200px;
+}
+
+.time-filter-container time {
+  margin-left: auto;
+  font-weight: 600;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+/* Lab 8: Entry transitions for circles */
+#scatterplot circle {
+  transition: opacity 0.3s ease, r 0.3s ease;
+}
+
+/* Lab 8: Unit visualization */
+#files, #files-step2 {
+  margin: 2em 0;
+}
+
+.unit-viz-container {
+  margin: 2em 0;
+}
+
+.files-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em 1em;
+  margin: 0;
+}
+
+.files-list .file-item {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em 1em;
+  margin: 1em 0;
+}
+
+.files-list dt {
+  font-weight: 600;
+  color: var(--color-accent);
+  grid-column: 1;
+}
+
+.files-list dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color, steelblue);
+  border-radius: 50%;
+}
+
+/* Scatterplot container - larger size */
+#scatterplot-container {
+  width: 100%;
+  margin: 2em 0;
+}
+
+/* Lab 8 Step 4: Files scrollytelling */
+#scrolly-2 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  margin-top: 2em;
+}
+
+#scrolly-2 > * {
+  flex: 1;
+}
+
+#files-story {
+  position: relative;
+}
+
+#files-story .step {
+  margin-bottom: 2em;
+  padding: 1em;
+  background: var(--form-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  min-height: 50vh;
+}
+
+#files-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+  overflow-y: auto;
+}
+
 /* GitHub Stats Card Styles */
 .github-stats-layout {
   display: grid;
@@ -1370,7 +1755,7 @@ a:hover {
 
 /* Responsive design for meta page */
 @media (max-width: 768px) {
-  .meta-hero h1 {
+  .meta-header h1 {
     font-size: 2em;
   }
   
